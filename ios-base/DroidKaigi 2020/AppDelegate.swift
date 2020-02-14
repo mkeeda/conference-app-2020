@@ -5,15 +5,19 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    weak var kojima1: Kojima?
+    weak var kojima2: Kojima?
+    weak var matsumoto1: Matsumoto?
+    weak var matsumoto2: Matsumoto?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let kojima1 = Kojima(name: "hideo", isTechLead: false, friend: nil)
-        let matsumoto1 = Matsumoto(name: "kiyoshi", isMSOL: false, friend: nil)
+        kojima1 = Kojima(name: "hideo", isTechLead: false, friend: nil)
+        matsumoto1 = Matsumoto(name: "kiyoshi", isMSOL: false, friend: nil)
 
-        let kojima2 = Kojima(name: "hideo", isTechLead: false, friend: nil)
-        let matsumoto2 = Matsumoto(name: "kiyoshi", isMSOL: false, friend: nil)
-        kojima2.friend_ = matsumoto2
-        matsumoto2.friend_ = kojima2
+        kojima2 = Kojima(name: "hideo", isTechLead: false, friend: nil)
+        matsumoto2 = Matsumoto(name: "kiyoshi", isMSOL: false, friend: nil)
+        kojima2?.friend_ = matsumoto2
+        matsumoto2?.friend_ = kojima2
 
         if #available(iOS 13, *) {
         } else {

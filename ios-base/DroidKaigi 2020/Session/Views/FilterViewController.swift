@@ -227,6 +227,8 @@ final class FilterViewController: UIViewController {
 
         filterView.headerView.resetButton.rx.tap.asObservable()
             .bind(to: Binder(self) { me, _ in
+                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                print(appDelegate?.debugDescription)
                 me.filterView.collectionView.visibleCells.forEach { cell in
                     guard let indexPath = me.filterView.collectionView.indexPath(for: cell) else {
                         return
