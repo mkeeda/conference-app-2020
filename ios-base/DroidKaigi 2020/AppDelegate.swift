@@ -1,3 +1,4 @@
+import ioscombined
 import Material
 import UIKit
 
@@ -6,6 +7,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let kojima1 = Kojima(name: "hideo", isTechLead: false, friend: nil)
+        let matsumoto1 = Matsumoto(name: "kiyoshi", isMSOL: false, friend: nil)
+
+        let kojima2 = Kojima(name: "hideo", isTechLead: false, friend: nil)
+        let matsumoto2 = Matsumoto(name: "kiyoshi", isMSOL: false, friend: nil)
+        kojima2.friend_ = matsumoto2
+        matsumoto2.friend_ = kojima2
+
         if #available(iOS 13, *) {
         } else {
             let window = UIWindow(frame: UIScreen.main.bounds)
